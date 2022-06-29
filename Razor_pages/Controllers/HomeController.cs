@@ -11,27 +11,27 @@ namespace Razor_pages.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public ViewResult Index()
         {
-            _logger = logger;
-        }
+            //Product myProduct = new Product
+            //{
+            //    ProductID = 1,
+            //    Name = "Kayak",
+            //    Description = "A boat for one person",
+            //    Category = "Watersports",
+            //    Price = 275M
+            //};
+            //ViewBag.StockLevel = 2;
+            //return View(myProduct);
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Product[] array =
+            {
+                new Product {Name = "Kayak", Price = 275M },
+                new Product {Name = "LifeJacket", Price = 48.95M },
+                new Product {Name = "Soccer Ball", Price = 19.50M },
+                new Product {Name = "Corner Flag", Price = 34.95M }
+            };
+            return View(array);
         }
     }
 }
